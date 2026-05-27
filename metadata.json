@@ -1,0 +1,6 @@
+{
+  "name": "Manga & Tech Portfolio",
+  "description": "An ultimate shonen-manga and cyberpunk-styled interactive developer portfolio with state persistence, fully operational hacking theme CLI console, and built-in secure back-office admin dashboard to manage projects and skills inventories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

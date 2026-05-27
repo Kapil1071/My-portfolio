@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@400;500;700;900&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Manga Screentones and Aesthetics */
+@layer utilities {
+  .manga-dots {
+    background-image: radial-gradient(#000000 15%, transparent 16%);
+    background-size: 8px 8px;
+  }
+  .manga-dots-light {
+    background-image: radial-gradient(rgba(0,0,0,0.2) 15%, transparent 16%);
+    background-size: 8px 8px;
+  }
+  .manga-dots-white {
+    background-image: radial-gradient(rgba(255,255,255,0.2) 15%, transparent 16%);
+    background-size: 8px 8px;
+  }
+  .halftone {
+    background-image: radial-gradient(#000 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.12;
+  }
+  .glitch-text {
+    text-shadow: 2px 0 #00f3ff, -2px 0 #ff007f;
+  }
+  .manga-lines {
+    background: repeating-linear-gradient(
+      -45deg,
+      #000000,
+      #000000 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  }
+  .manga-lines-light {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  }
+  .tech-grid {
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+  .manga-border-thick {
+    border: 3px solid #000000;
+  }
+  .manga-shadow-black {
+    box-shadow: 6px 6px 0px 0px #000000;
+  }
+  .manga-shadow-magenta {
+    box-shadow: 6px 6px 0px 0px #ff007f;
+  }
+  .manga-shadow-yellow {
+    box-shadow: 6px 6px 0px 0px #facc15;
+  }
+  .manga-shadow-cyan {
+    box-shadow: 6px 6px 0px 0px #00f3ff;
+  }
+}
+
+/* Custom animations for speed lines and tech blinks */
+@keyframes techBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-tech-blink {
+  animation: techBlink 1.5s infinite;
+}
+
+.scanline::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  opacity: 1;
+  z-index: 2;
+  background-size: 100% 4px, 100% 4px;
+  pointer-events: none;
+}
+
+/* Speech bubble tip clip paths */
+.speech-tip-bottom {
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.speech-tip-left {
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
